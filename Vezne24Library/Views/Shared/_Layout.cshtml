@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Title -->
+    <title>Vezne24 Kütüphane Otomasyon Sistemi</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/022-grains-master/public/img/favicon.ico">
+
+
+    <!-- Template -->
+    <link rel="stylesheet" href="~/Content/022-grains-master/public/graindashboard/css/graindashboard.css">
+
+</head>
+
+<body class="has-sidebar has-fixed-sidebar-and-header">
+    <!-- Header -->
+    <header class="header bg-body">
+        <nav class="navbar flex-nowrap p-0">
+            <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
+                <!-- Logo For Mobile View -->
+                <a class="navbar-brand navbar-brand-mobile" href="/">
+                    <img class="img-fluid w-100" src="~/Content/022-grains-master/public/img/logo-mini.png" alt="Graindashboard">
+                </a>
+                <!-- End Logo For Mobile View -->
+                <!-- Logo For Desktop View -->
+                <a class="navbar-brand navbar-brand-desktop" href="/">
+                    <img class="side-nav-show-on-closed" src="~/Content/022-grains-master/public/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
+                    <img class="side-nav-hide-on-closed" src="~/Content/022-grains-master/public/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
+                </a>
+                <!-- End Logo For Desktop View -->
+            </div>
+
+            <div class="header-content col px-md-3">
+                <div class="d-flex align-items-center">
+                    <!-- Side Nav Toggle -->
+                    <a class="js-side-nav header-invoker d-flex mr-md-2" href="#"
+                       data-close-invoker="#sidebarClose"
+                       data-target="#sidebar"
+                       data-target-wrapper="body">
+                        <i class="gd-align-left"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <main class="main">
+        <!-- Sidebar Nav -->
+        <aside id="sidebar" class="js-custom-scroll side-nav">
+            <ul id="sideNav" class="side-nav-menu side-nav-menu-top-level mb-0">
+                <!-- Title -->
+                <li class="sidebar-heading h6">Dashboard</li>
+                <!-- End Title -->
+                <!-- Dashboard -->
+                <li class="side-nav-menu-item">
+                    <a class="side-nav-menu-link  align-items-center" href="/Member/Index">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-user"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed ">Üye Bilgileri</span>
+                    </a>
+                    <a class="side-nav-menu-link  align-items-center" href="/Book/Index">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-book"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed ">Kitap İşlemleri</span>
+                    </a>
+                    <a class="side-nav-menu-link  align-items-center" href="/Author/Index">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-ink-pen"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed ">Yazar İşlemleri</span>
+                    </a>
+                    <a class="side-nav-menu-link  align-items-center" href="/Publisher/Index">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-announcement"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed ">Yayıncı İşlemleri</span>
+                    </a>
+                    <a class="side-nav-menu-link  align-items-center" href="/Borrow/Index">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-briefcase"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed ">Ödünç Alama İşlemleri</span>
+                    </a>
+                    <a class="side-nav-menu-link  align-items-center" href="/User/LogOut">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-arrow-left"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed ">Çıkış</span>
+                    </a>
+
+                </li>
+            </ul>
+        </aside>
+        @Html.Partial("_ScriptPartial")
+        @RenderBody()
+    </main>
+
+
+    <script src="~/Content/022-grains-master/public/graindashboard/js/graindashboard.js"></script>
+    <script src="~/Content/022-grains-master/public/graindashboard/js/graindashboard.vendor.js"></script>
+</body>
+</html>  

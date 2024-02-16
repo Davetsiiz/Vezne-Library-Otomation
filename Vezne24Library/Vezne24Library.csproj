@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23D8C944-BE4C-4556-B6D9-F1FEF456C83B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vezne24Library</RootNamespace>
+    <AssemblyName>Vezne24Library</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.11.9.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.DependencyInjectionExtensions, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.DependencyInjectionExtensions.11.9.0\lib\netstandard2.0\FluentValidation.DependencyInjectionExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BorrowController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\PublisherController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookModels\BookEditViewModel.cs" />
+    <Compile Include="Models\BookViewModel.cs" />
+    <Compile Include="Models\BorrowModels\BorrowViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\UserRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\022-grains-master\public\demo\chartist-plugin-tooltip.css" />
+    <Content Include="Content\022-grains-master\public\demo\chartist-plugin-tooltip.js" />
+    <Content Include="Content\022-grains-master\public\demo\chartist.css" />
+    <Content Include="Content\022-grains-master\public\demo\chartist.js" />
+    <Content Include="Content\022-grains-master\public\demo\gd.chartist-area.js" />
+    <Content Include="Content\022-grains-master\public\demo\gd.chartist-bar.js" />
+    <Content Include="Content\022-grains-master\public\demo\gd.chartist-donut.js" />
+    <Content Include="Content\022-grains-master\public\demo\gd.chartist-pie.js" />
+    <Content Include="Content\022-grains-master\public\demo\resizeSensor.js" />
+    <Content Include="Content\022-grains-master\public\graindashboard\css\gd-icons.css" />
+    <Content Include="Content\022-grains-master\public\graindashboard\css\gd-icons.svg" />
+    <Content Include="Content\022-grains-master\public\graindashboard\css\graindashboard.css" />
+    <Content Include="Content\022-grains-master\public\graindashboard\js\graindashboard.js" />
+    <Content Include="Content\022-grains-master\public\graindashboard\js\graindashboard.vendor.js" />
+    <Content Include="Content\022-grains-master\public\img\favicon.ico" />
+    <Content Include="Content\022-grains-master\public\img\favicon.png" />
+    <Content Include="Content\022-grains-master\public\img\logo-light-mini.png" />
+    <Content Include="Content\022-grains-master\public\img\logo-light.png" />
+    <Content Include="Content\022-grains-master\public\img\logo-mini.png" />
+    <Content Include="Content\022-grains-master\public\img\logo.png" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\gd-icons\gd-icons.css" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\gd-icons\gd-icons.svg" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\js\components.js" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\js\components\gd.malihu-scrollbar.js" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\js\components\gd.side-nav.js" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\js\components\gd.unfold.js" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\js\graindashboard.js" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\js\vendor.js" />
+    <Content Include="Content\022-grains-master\webpack.mix.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\022-grains-master\package-lock.json" />
+    <Content Include="Content\022-grains-master\package.json" />
+    <Content Include="Content\022-grains-master\public\graindashboard\css\gd-icons.eot" />
+    <Content Include="Content\022-grains-master\public\graindashboard\css\gd-icons.ttf" />
+    <Content Include="Content\022-grains-master\public\graindashboard\css\gd-icons.woff" />
+    <Content Include="Content\022-grains-master\public\mix-manifest.json" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\gd-icons\gd-icons.eot" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\gd-icons\gd-icons.ttf" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\gd-icons\gd-icons.woff" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\accordions\_accordions.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\alerts\_alerts.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\autocomplete\_autocomplete.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\avatar\_avatar.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\badges\_badges.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\breadcrumb\_breadcrumb.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\buttons\_buttons-sizes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\buttons\_buttons.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\cards\_cards.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\changer\_changer.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-custom.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-divided.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-position.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-themes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-axis-x.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-gantt.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-labels.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-points.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-timeline.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\credit-card\_credit-card.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\datepicker\_datepicker.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\dividers\_dividers.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\dots\_dots.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\dropdowns\_dropdowns.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks-sizes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks-text.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-controls\_form-controls.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios-sizes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios-text.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\input-group\_input-group.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-bordered.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-simple.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-sizes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-styles.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_selects.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\switch\_form-switch.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\forms\_forms.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\headers\_header-light.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\headers\_headers.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\hero\_bg-image-hero.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\icons\_icons.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\indicators\_indicators.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\layout\_layout.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-dot.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-group.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-simple.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-stacked.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_background.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_border-radius.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_buttons.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_check.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_content-centered.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_indicator.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\modals\_modals.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\paginations\_paginations.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\progress\_progress.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\reboot\_accessibility.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\reboot\_print.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\reboot\_style.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\search\_search.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\side-nav\_side-nav.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tables\_tables.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-designs.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-positions.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-text-alignment.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-themes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-sizes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-themes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\unfold\_unfold.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_animations.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_background.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_borders.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_colors.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_cursor.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_links.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_opacity.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_overflow.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_position.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_sizing.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_text.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_transitions.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_typo-font-sizes.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_typo-font-weight.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\animate.css\_animate.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\chartist-plugin-tooltip\_chartist-plugin-tooltip.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\datatables\_datatables.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\dropzone\_basic.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\dropzone\_custom.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\dropzone\_dropzone.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\flatpickr\_flatpickr.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\_graindashboard.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\_mixins.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\graindashboard\_variables.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\_user-variables.scss" />
+    <Content Include="Content\022-grains-master\resources\graindashboard\sass\_user.scss" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Author\Add.cshtml" />
+    <Content Include="Views\Author\Edit.cshtml" />
+    <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\Publisher\Add.cshtml" />
+    <Content Include="Views\Publisher\Edit.cshtml" />
+    <Content Include="Views\Publisher\Index.cshtml" />
+    <Content Include="Views\Book\Add.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Borrow\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Shared\_ScriptPartial.cshtml" />
+    <Content Include="Views\Borrow\Loans.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinnessLayer\BusinnessLayer.csproj">
+      <Project>{417f3779-7021-44bb-8637-2a966283990f}</Project>
+      <Name>BusinnessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{db28aed1-0a97-4119-b09f-27dc7d3346dc}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{e22b0eac-2ef8-48ad-9518-33dbc033f981}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4483</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44340/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

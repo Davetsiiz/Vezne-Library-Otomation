@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Title -->
+    <title>Giriş | Vezne24 Kütüphane Otomasyon Sistemi</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/022-grains-master/public/img/favicon.ico">
+
+    <!-- Template -->
+    <link rel="stylesheet" href="~/Content/022-grains-master/public/graindashboard/css/graindashboard.css">
+</head>
+@Html.Partial("_ScriptPartial")
+<body class="">
+
+    <main class="main">
+
+        <div class="content">
+
+            <div class="container-fluid pb-5">
+
+                <div class="row justify-content-md-center">
+                    <div class="card-wrapper col-12 col-md-4 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Giriş</h4>
+                                <form action="/user/login" method="post" id="formVZN">
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-group"><p class="text-danger">@ViewBag.error</p></div>
+                                    <div class="form-group">
+                                        <label for="email">E-Posta Adresi</label>
+                                        <input id="email" type="email" class="form-control" name="email" required="" autofocus="">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">
+                                            Şifre
+                                        </label>
+                                        <input id="password" type="password" class="form-control" name="password" required="">
+                                        <div class="text-right">
+                                            <a href="/user/passwordreset" class="small">
+                                                Şifremi Unuttum
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group no-margin">
+                                        <a href="/Book/Index" id="btnSub" class="btn btn-primary btn-block">
+                                            Giriş
+                                        </a>
+                                    </div>
+                                    <div class="text-center mt-3 small">
+                                        Hesabınız yok mu? <a href="/user/register">Hesap Aç</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="~/Content/022-grains-master/public/graindashboard/js/graindashboard.js"></script>
+    <script src="~/Content/022-grains-master/public/graindashboard/js/graindashboard.vendor.js"></script>
+</body>
+</html>
+<script>
+    $('#btnSub').click(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Giriş Yapmak İstiyor Musunuz?",
+            showDenyButton: true,
+            confirmButtonText: "Evet",
+            cancelButtonText: 'Hayır!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#formVZN').submit();
+            } else if (result.isDenied) {
+                Swal.fire("İşlem İptal Edildi.", "", "info");
+            }
+        });
+    });
+</script>

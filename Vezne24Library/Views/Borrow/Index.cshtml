@@ -1,0 +1,93 @@
+﻿@model Vezne24Library.Models.BorrowModels.BorrowViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="card-body">
+        <div class="card-header bg-white d-flex align-items-center" style="margin:inherit;">
+            <h5 class="font-weight-semi-bold">Ödünç Alınan Kitap Listesi</h5>
+        </div>
+        <table id="bookTable" class="table table-striped display" style="width:100%;">
+            <thead>
+                <tr class="col-10">
+                    <th>Kitap Adı</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Alış Tarihi</th>
+                    <th>Son Teslim Tarihi</th>
+                    <th>Teslim Tarihi</th>
+                    <th>İade Et</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Borrows)
+                {
+                    <tr>
+                        <td>@Model.Books.FirstOrDefault(book => book.Id == item.BookId).Name</td>
+                        <td>@Model.Members.FirstOrDefault(member => member.Id == item.MemberId).FirstName @Model.Members.FirstOrDefault(member => member.Id == item.MemberId).LastName</td>
+                        <td>@item.PeriodStartDate.ToShortDateString()</td>
+                        <td>@item.PeriodFinishDate.ToShortDateString()</td>
+                        <td>
+                            @if (item.ReturnedDate != null)
+                            {
+                                @item.ReturnedDate.ToString()
+                            }
+                            else
+                            {
+                                <span>Teslim edilmedi</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Deleted == false)
+                            {
+                                <a class="btn" href="/Borrow/Pay/@item.Id">
+                                    <i class="gd-back-right icon-text"></i>
+                                    <span><u>İade Et</u></span>
+                                </a>
+                            }
+                            else
+                            {
+                                <p> </p>
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table><br />
+        <div class="card-header d-xl-flex">
+            <div class="d-flex align-items-center ml-xl-auto">
+                <button class="btn btn-success  d-flex align-items-end ml-6 ml-xl-8">
+                    <a href="/Borrow/Loans">
+                        <span><i class="gd-plus icon-text mr-1"></i>Ödünç Kitap Ver</span>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        new DataTable('#bookTable', {
+            searching: true,
+            paging: true,
+            lengthChange: true,
+            pagingType: 'full_numbers',
+            ordering: true,
+            autoWidth: true
+        });
+    });
+
+</script>
+
+
+

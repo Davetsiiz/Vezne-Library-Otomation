@@ -1,0 +1,128 @@
+﻿@model EntityLayer.Concrete.Member
+@{
+    ViewBag.Title = "Register";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Title -->
+    <title>Yeni Kullanıcı Kayıt Sayfası </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/022-grains-master/public/img/favicon.ico">
+
+    <!-- Template -->
+    <link rel="stylesheet" href="~/Content/022-grains-master/public/graindashboard/css/graindashboard.css">
+</head>
+@Html.Partial("_ScriptPartial")
+<body class="col-md-12">
+
+    <main class="main">
+
+        <div class="content">
+
+            <div class="container-fluid pb-5">
+
+                <div class="row justify-content-md-center">
+                    <div class="card-wrapper col-12 col-md-4 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Yeni Kayıt</h4>
+                                <form id="formVZN" action="/user/register" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-group"><p class="text-danger">@ViewBag.Message</p></div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="FirstName">İsim</label>
+                                            <input type="text" class="form-control" id="FirstName" name="FirstName" required="" autofocus="">
+                                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="LastName">Soyisim</label>
+                                            <input type="text" class="form-control" id="LastName" name="LastName" required="" autofocus="">
+                                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="Email">E-Posta Adresi</label>
+                                            <input id="Email" type="Email" class="form-control" name="email" required="">
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="Phone">Telefon</label>
+                                            <input id="Phone" type="tel" class="form-control" name="Phone" required="">
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="password">
+                                                Şifre
+                                            </label>
+                                            <input id="password" type="password" class="form-control" name="password" required="">
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="password-confirm">
+                                                Şifre Onay
+                                            </label>
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group no-margin">
+                                        <a id="btnSub" class="btn btn-primary btn-block">
+                                            Giriş
+                                        </a>
+                                    </div>
+                                    <div class="text-center mt-3 small">
+                                        Zetn hesabınız var mı? <a href="/user/login">Giriş Yap!</a>
+                                    </div>
+                                    @*}*@
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="~/Content/022-grains-master/public/graindashboard/js/graindashboard.js"></script>
+    <script src="~/Content/022-grains-master/public/graindashboard/js/graindashboard.vendor.js"></script>
+
+</body>
+</html>
+<script>
+    $('#btnSub').click(function (e) {
+        e.preventDefault();
+        var password = $('#password').val();
+        var confirmPassword = $('#password-confirm').val();
+        if (password !== confirmPassword) {
+            Swal.fire("Hata", "Şifreler eşleşmiyor, lütfen doğru girdiğinizden emin olun.", "error");
+        }
+        else {
+            Swal.fire({
+                title: "Bilgilerinizi Kaydetmek İstiyor Musunuz?",
+                showDenyButton: true,
+                confirmButtonText: "Evet",
+                cancelButtonText: 'Hayır!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#formVZN').submit();
+                } else if (result.isDenied) {
+                    Swal.fire("İşlem İptal Edildi.", "", "info");
+                }
+            });
+        }
+    });
+</script>

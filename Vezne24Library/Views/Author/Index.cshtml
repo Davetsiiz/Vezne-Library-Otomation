@@ -1,0 +1,87 @@
+﻿@using EntityLayer.Concrete;
+@model List<Author>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div class="card-body">
+        <div class="card-header bg-white d-flex align-items-center" style="margin:inherit;">
+            <h5 class="font-weight-semi-bold">Yazar Listesi</h5>
+        </div>
+        <table id="authorTable" class="table table-striped display" style="width:100%;">
+            <thead>
+                <tr class="col-10">
+                    <th>Yazar Adı</th>
+                    <th>Düzenle</th>
+                    <th>Sil</th>
+                    <th>Admin Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <a class="btn" href="/Author/Edit/@item.Id">
+                                <i class="gd-zoom-in icon-text"></i>
+                                <span><u>Yazar Düzenle</u></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn" href="/Author/SoftDelete/@item.Id">
+                                <i class="gd-trash icon-text"></i>
+                                <span><u>Yazar Sil</u></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn" href="/Author/Delete/@item.Id">
+                                <i class="gd-trash icon-text"></i>
+                                <span><u>Yazar Sil</u></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <div class="card-header d-xl-flex">
+            <div class="d-flex align-items-center ml-xl-auto">
+                    <button class="btn btn-success  d-flex align-items-end ml-6 ml-xl-8" >
+                        <a href="/Author/Add">
+                            <span><i class="gd-plus icon-text mr-1"></i>Yazar Ekle</span>
+                        </a>
+                    </button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        new DataTable('#authorTable', {
+            searching: false,
+            order: [[0, 'desc']],
+            paging: false,
+            lengthChange: false,
+            pagingType: 'full_numbers',
+            ordering: true,
+            autoWidth: false
+        });
+    });
+</script>
+

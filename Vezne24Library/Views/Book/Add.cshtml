@@ -1,0 +1,65 @@
+﻿@model  EntityLayer.Concrete.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<div class="card  col-12 mb-md-12" style="margin:initial">
+
+    <div class="card-header bg-secondary d-flex align-items-center" style="margin:inherit;">
+        <h5 class="font-weight-semi-bold ">Kitap Ekle</h5>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Add", "Book", FormMethod.Post, new {id= "formVZN", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.Name, "Kitap Adı", new { @style = "font-size:20px;" })
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "border:2px solid;" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.Barcode, "Barkod", new { @style = "font-size:20px;" })
+                @Html.TextBoxFor(model => model.Barcode, new { @class = "form-control", style = "border:2px solid;" })
+                @Html.ValidationMessageFor(model => model.Barcode, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.AuthorId, "Yazar Adı", new { @style = "font-size:20px;" })
+                @Html.DropDownListFor(model => model.AuthorId, new SelectList(ViewBag.authors, "Id", "Name"), "Yazar Seçiniz", new { @class = "form-control", style = "border:2px solid;" })
+                @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.PublisherId, "Yayın Evi", new { @style = "font-size:20px;" })
+                @Html.DropDownListFor(model => model.PublisherId, new SelectList(ViewBag.publisher, "Id", "Name"), "Yayın Evi Seçiniz", new { @class = "form-control", style = "border:2px solid;" })
+                @Html.ValidationMessageFor(model => model.PublisherId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.Piece, "Kitap Adet", new { @style = "font-size:20px;" })
+                @Html.TextBoxFor(model => model.Piece, new { @class = "form-control", style = "border:2px solid;" })
+                @Html.ValidationMessageFor(model => model.Piece, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-lg-3">
+                <button class="btn btn-success" id="btnSub">Kaydet</button>
+            </div>
+
+        }
+    </div>
+</div>
+<script>
+    $('#btnSub').click(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Bilgiler Kaydedilsin İstiyor Musunuz?",
+            showDenyButton: true,
+            confirmButtonText: "Evet",
+            cancelButtonText:'Hayır!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#formVZN').submit();
+            } else if (result.isDenied) {
+                Swal.fire("İşlem İptal Edildi.", "", "info");
+            }
+        });
+    });
+</script>

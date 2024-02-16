@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Author
+@{
+    ViewBag.Title = "Yazar Ekleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card  col-12 mb-md-12" style="margin:initial">
+
+    <div class="card-header bg-secondary d-flex align-items-center" style="margin:inherit;">
+        <h5 class="font-weight-semi-bold ">Yazar Ekle</h5>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Add", "Author", FormMethod.Post, new { id = "formVZN",enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-group col-md-3 col-lg-3">
+            @Html.LabelFor(model => model.Name, "Yazar Adı", new { @style = "font-size:20px;" })
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control",style= "border:2px solid;" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <button class="btn btn-success" id="btnSub" >Kaydet</button>
+        </div>
+            
+        }
+    </div>
+</div>
+<script>
+    $('#btnSub').click(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Bilgiler Kaydedilsin İstiyor Musunuz?",
+            showDenyButton: true,
+            confirmButtonText: "Evet",
+            cancelButtonText:'Hayır!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#formVZN').submit();
+            } else if (result.isDenied) {
+                Swal.fire("İşlem İptal Edildi.", "", "info");
+            }
+        });
+    });
+</script>

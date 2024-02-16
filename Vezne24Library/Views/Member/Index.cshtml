@@ -1,0 +1,85 @@
+﻿@using EntityLayer.Concrete
+@model  List<Member>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div class="card-body">
+        <div class="card-header bg-white d-flex align-items-center" style="margin:inherit;">
+            <h5 class="font-weight-semi-bold">Kullanıcı Listesi</h5>
+        </div>
+        <table id="bookTable" class="table table-striped display" style="width:100%;">
+            <thead>
+                <tr class="col-10">
+                    <th>Kullanıcı Adı</th>
+                    <th>Adı Soyadı</th>
+                    <th>E-Posta</th>
+                    <th>Telefon</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>
+                            @if (item.RoleId == 3)
+                            {
+                                <span class="text-danger">Admin</span>
+                            }
+                            else if (item.RoleId == 5)
+                            {
+                                <span class="text-secondary">Moderator</span>
+                            }
+                            else
+                            {
+                                <span class="text-primary">Kullanıcı</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table><br />
+        <div class="col-md-10 row">
+            <div class="d-flex">
+                <input type="text" id="searchInput" class="form-control" placeholder="Üye Adı, Soyadı, E-Posta">
+                <button class="btn btn-success ml-2" onclick="search()">
+                    <span><i class="gd-search icon-text mr-1"></i>BUL</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        new DataTable('#bookTable', {
+            searching: true,
+            paging: true,
+            lengthChange: true,
+            pagingType: 'full_numbers',
+            ordering: true,
+            autoWidth: true
+        });
+    });
+    function search() {
+        var key = document.getElementById("searchInput").value;
+        window.location.href = "/Member/Index?key=" + key;
+    }
+</script>
+
+
+

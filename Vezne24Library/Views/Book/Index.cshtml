@@ -1,0 +1,105 @@
+﻿@model Vezne24Library.Models.BookViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="card-body">
+        <div class="card-header bg-white d-flex align-items-center" style="margin:inherit;">
+            <h5 class="font-weight-semi-bold">Kitap Listesi</h5>
+        </div>
+        <div class="col-md-12">
+            <table id="bookTable" class="table table-striped display" style="width:100%;">
+                <thead>
+                    <tr class="col-10">
+                        <th>Kitap Adı</th>
+                        <th>Yazar</th>
+                        <th>Yayın Evi</th>
+                        <th>Barkod</th>
+                        <th>Adet</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                        <th>Sil (Admin)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var books in Model.Books)
+                    {
+                        <tr>
+                            <td>@books.Name</td>
+                            <td>@Model.Authors.FirstOrDefault(authors => authors.Id == books.AuthorId).Name</td>
+                            <td>@Model.Publishers.FirstOrDefault(publisher => publisher.Id == books.PublisherId).Name</td>
+                            <td>@books.Barcode</td>
+                            <td>@books.Piece.ToString()</td>
+                            <td>
+                                <a class="btn" href="/Book/Edit/@books.Id">
+                                    <i class="gd-zoom-in icon-text"></i>
+                                    <span><u>Düzenle</u></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn" href="/Book/SoftDelete/@books.Id">
+                                    <i class="gd-trash icon-text"></i>
+                                    <span><u>Sil</u></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn" href="/Book/Delete/@books.Id">
+                                    <i class="gd-trash icon-text"></i>
+                                    <span><u>Sil (Admin)</u></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <div class="col-md-10 row">
+                <div class="d-flex">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Kitap Adı veya Barkod">
+                    <button class="btn btn-success ml-2" onclick="search()">
+                        <span><i class="gd-search icon-text mr-1"></i>BUL</span>
+                    </button>
+                </div>
+            </div>
+            <div class="card-header d-xl-flex">
+                <div class="d-flex align-items-center ml-xl-auto">
+                    <button class="btn btn-success  d-flex align-items-end ml-6 ml-xl-8">
+                        <a href="/Book/Add">
+                            <span><i class="gd-plus icon-text mr-1"></i>Kitap Ekle</span>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        new DataTable('#bookTable', {
+            searching: true,
+            paging: true,
+            lengthChange: true,
+            pagingType: 'full_numbers',
+            ordering: true,
+            autoWidth: true
+        });
+        $('#searchInput').on('keyup', function () {
+            $('#bookTable').search(this.value).draw();
+        });
+    });
+    function search() {
+        var key = document.getElementById("searchInput").value;
+        window.location.href = "/Book/Index?key=" + key;
+    }
+</script>
